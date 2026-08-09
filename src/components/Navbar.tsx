@@ -45,7 +45,7 @@ function Navbar() {
                 </Link>
 
                 <Link
-                  to="/services"
+                  to="/services/software-engineering"
                   className="block rounded-md px-4 py-3 text-sm hover:bg-[#E6F7FB]"
                   onClick={() => setServicesOpen(false)}
                 >
@@ -53,7 +53,7 @@ function Navbar() {
                 </Link>
 
                 <Link
-                  to="/services"
+                  to="/services/cloud-architecture"
                   className="block rounded-md px-4 py-3 text-sm hover:bg-[#E6F7FB]"
                   onClick={() => setServicesOpen(false)}
                 >
@@ -61,7 +61,7 @@ function Navbar() {
                 </Link>
 
                 <Link
-                  to="/services"
+                  to="/services/ai-data-analytics"
                   className="block rounded-md px-4 py-3 text-sm hover:bg-[#E6F7FB]"
                   onClick={() => setServicesOpen(false)}
                 >
