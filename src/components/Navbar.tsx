@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import MetroBlueLogo from "./MetroBlueLogo.tsx";
 
 function Navbar() {
@@ -7,20 +7,23 @@ function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [projectsOpen, setProjectsOpen] = useState(false);
 
+  const activeClass = "font-medium text-[#00BCD4]";
+  const inactiveClass = "font-medium text-slate-700 hover:text-[#00BCD4]";
+
   return (
     <header className="border-b border-slate-200 bg-white">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" onClick={() => setMobileOpen(false)}>
+        <NavLink to="/" onClick={() => setMobileOpen(false)}>
           <MetroBlueLogo />
-        </Link>
+        </NavLink>
 
         <div className="hidden items-center gap-8 md:flex">
-          <Link
+          <NavLink
             to="/"
-            className="font-medium text-slate-700 hover:text-[#00BCD4]"
+            className={({ isActive }) => isActive ? activeClass : inactiveClass}
           >
             Home
-          </Link>
+          </NavLink>
 
           <div className="relative">
             <button
@@ -29,44 +32,44 @@ function Navbar() {
                 setServicesOpen(!servicesOpen);
                 setProjectsOpen(false);
               }}
-              className="font-medium text-slate-700 hover:text-[#00BCD4]"
+              className={servicesOpen ? "font-medium text-[#00BCD4]" : "font-medium text-slate-700 hover:text-[#00BCD4]"}
             >
               Services ▾
             </button>
 
             {servicesOpen && (
               <div className="absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border bg-white p-2 shadow-lg">
-                <Link
+                <NavLink
                   to="/services"
-                  className="block rounded-md px-4 py-3 text-sm hover:bg-[#E6F7FB]"
+                  className={({ isActive }) => `block rounded-md px-4 py-3 text-sm ${isActive ? 'bg-[#E6F7FB] text-[#00BCD4]' : 'hover:bg-[#E6F7FB]'}`}
                   onClick={() => setServicesOpen(false)}
                 >
                   All Services
-                </Link>
+                </NavLink>
 
-                <Link
+                <NavLink
                   to="/services/software-engineering"
-                  className="block rounded-md px-4 py-3 text-sm hover:bg-[#E6F7FB]"
+                  className={({ isActive }) => `block rounded-md px-4 py-3 text-sm ${isActive ? 'bg-[#E6F7FB] text-[#00BCD4]' : 'hover:bg-[#E6F7FB]'}`}
                   onClick={() => setServicesOpen(false)}
                 >
                   Software Engineering
-                </Link>
+                </NavLink>
 
-                <Link
+                <NavLink
                   to="/services/cloud-architecture"
-                  className="block rounded-md px-4 py-3 text-sm hover:bg-[#E6F7FB]"
+                  className={({ isActive }) => `block rounded-md px-4 py-3 text-sm ${isActive ? 'bg-[#E6F7FB] text-[#00BCD4]' : 'hover:bg-[#E6F7FB]'}`}
                   onClick={() => setServicesOpen(false)}
                 >
                   Cloud Architecture
-                </Link>
+                </NavLink>
 
-                <Link
+                <NavLink
                   to="/services/ai-data-analytics"
-                  className="block rounded-md px-4 py-3 text-sm hover:bg-[#E6F7FB]"
+                  className={({ isActive }) => `block rounded-md px-4 py-3 text-sm ${isActive ? 'bg-[#E6F7FB] text-[#00BCD4]' : 'hover:bg-[#E6F7FB]'}`}
                   onClick={() => setServicesOpen(false)}
                 >
                   AI & Data Analytics
-                </Link>
+                </NavLink>
               </div>
             )}
           </div>
@@ -78,60 +81,62 @@ function Navbar() {
                 setProjectsOpen(!projectsOpen);
                 setServicesOpen(false);
               }}
-              className="font-medium text-slate-700 hover:text-[#00BCD4]"
+              className={projectsOpen ? "font-medium text-[#00BCD4]" : "font-medium text-slate-700 hover:text-[#00BCD4]"}
             >
               Projects ▾
             </button>
 
             {projectsOpen && (
               <div className="absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border bg-white p-2 shadow-lg">
-                <Link
+                <NavLink
                   to="/projects"
-                  className="block rounded-md px-4 py-3 text-sm hover:bg-[#E6F7FB]"
+                  className={({ isActive }) => `block rounded-md px-4 py-3 text-sm ${isActive ? 'bg-[#E6F7FB] text-[#00BCD4]' : 'hover:bg-[#E6F7FB]'}`}
                   onClick={() => setProjectsOpen(false)}
                 >
                   All Projects
-                </Link>
+                </NavLink>
 
-                <Link
+                <NavLink
                   to="/case-studies"
-                  className="block rounded-md px-4 py-3 text-sm hover:bg-[#E6F7FB]"
+                  className={({ isActive }) => `block rounded-md px-4 py-3 text-sm ${isActive ? 'bg-[#E6F7FB] text-[#00BCD4]' : 'hover:bg-[#E6F7FB]'}`}
                   onClick={() => setProjectsOpen(false)}
                 >
                   Case Studies
-                </Link>
+                </NavLink>
 
-                <Link
+                <NavLink
                   to="/client-success-stories"
-                  className="block rounded-md px-4 py-3 text-sm hover:bg-[#E6F7FB]"
+                  className={({ isActive }) => `block rounded-md px-4 py-3 text-sm ${isActive ? 'bg-[#E6F7FB] text-[#00BCD4]' : 'hover:bg-[#E6F7FB]'}`}
                   onClick={() => setProjectsOpen(false)}
                 >
                   Client Success Stories
-                </Link>
+                </NavLink>
               </div>
             )}
           </div>
 
-          <Link
+          <NavLink
             to="/about"
-            className="font-medium text-slate-700 hover:text-[#00BCD4]"
+            className={({ isActive }) => isActive ? activeClass : inactiveClass}
           >
             About
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/careers"
-            className="font-medium text-slate-700 hover:text-[#00BCD4]"
+            className={({ isActive }) => isActive ? activeClass : inactiveClass}
           >
             Careers
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/contact"
-            className="rounded-lg bg-[#0F4C81] px-5 py-2.5 font-medium text-white hover:bg-[#0B1F3A]"
+            className={({ isActive }) => isActive 
+              ? "rounded-lg bg-[#0F4C81] px-5 py-2.5 font-medium text-white hover:bg-[#0B1F3A]" 
+              : "rounded-lg bg-[#0F4C81] px-5 py-2.5 font-medium text-white hover:bg-[#0B1F3A]"}
           >
             Contact
-          </Link>
+          </NavLink>
         </div>
 
         <button
@@ -147,53 +152,53 @@ function Navbar() {
       {mobileOpen && (
         <div className="border-t border-slate-200 px-6 py-4 md:hidden">
           <div className="flex flex-col gap-2">
-            <Link
+            <NavLink
               to="/"
-              className="rounded-md px-4 py-3 hover:bg-[#E6F7FB]"
+              className={({ isActive }) => `rounded-md px-4 py-3 ${isActive ? 'bg-[#E6F7FB] text-[#00BCD4]' : 'hover:bg-[#E6F7FB]'}`}
               onClick={() => setMobileOpen(false)}
             >
               Home
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/services"
-              className="rounded-md px-4 py-3 hover:bg-[#E6F7FB]"
+              className={({ isActive }) => `rounded-md px-4 py-3 ${isActive ? 'bg-[#E6F7FB] text-[#00BCD4]' : 'hover:bg-[#E6F7FB]'}`}
               onClick={() => setMobileOpen(false)}
             >
               Services
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/projects"
-              className="rounded-md px-4 py-3 hover:bg-[#E6F7FB]"
+              className={({ isActive }) => `rounded-md px-4 py-3 ${isActive ? 'bg-[#E6F7FB] text-[#00BCD4]' : 'hover:bg-[#E6F7FB]'}`}
               onClick={() => setMobileOpen(false)}
             >
               Projects
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/about"
-              className="rounded-md px-4 py-3 hover:bg-[#E6F7FB]"
+              className={({ isActive }) => `rounded-md px-4 py-3 ${isActive ? 'bg-[#E6F7FB] text-[#00BCD4]' : 'hover:bg-[#E6F7FB]'}`}
               onClick={() => setMobileOpen(false)}
             >
               About
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/careers"
-              className="rounded-md px-4 py-3 hover:bg-[#E6F7FB]"
+              className={({ isActive }) => `rounded-md px-4 py-3 ${isActive ? 'bg-[#E6F7FB] text-[#00BCD4]' : 'hover:bg-[#E6F7FB]'}`}
               onClick={() => setMobileOpen(false)}
             >
               Careers
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/contact"
-              className="rounded-md bg-[#0F4C81] px-4 py-3 text-center font-medium text-white"
+              className={({ isActive }) => `rounded-md px-4 py-3 text-center font-medium ${isActive ? 'bg-[#0F4C81] text-white' : 'bg-[#0F4C81] text-white hover:bg-[#0B1F3A]'}`}
               onClick={() => setMobileOpen(false)}
             >
               Contact
-            </Link>
+            </NavLink>
           </div>
         </div>
       )}
