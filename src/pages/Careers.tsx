@@ -10,6 +10,24 @@ interface Job {
   requirements: string[];
 }
 
+interface ApplicationForm {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  linkedin: string;
+  coverLetter: string;
+}
+
+interface FormErrors {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  phone?: string;
+  linkedin?: string;
+  coverLetter?: string;
+}
+
 const jobs: Job[] = [
   {
     id: 1,
@@ -82,6 +100,314 @@ const jobs: Job[] = [
     ]
   }
 ];
+
+const validateEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const validatePhone = (phone: string): boolean => {
+  const phoneRegex = /^[\d\s-()+]{10,}$/;
+  return phoneRegex.test(phone);
+};
+
+const validateRequired = (value: string): boolean => {
+  return value.trim().length > 0;
+};
+
+const validateMinLength = (value: string, minLength: number): boolean => {
+  return value.trim().length >= minLength;
+};
+
+function ApplicationModal({ job, onClose }: { job: Job; onClose: () => void }) {
+  const [formData, setFormData] = useState<ApplicationForm>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    linkedin: '',
+    coverLetter: ''
+  });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  const validateField = (name: string, value: string): string | undefined => {
+    switch (name) {
+      case 'firstName':
+        if (!validateRequired(value)) return 'First name is required';
+        if (!validateMinLength(value, 2)) return 'First name must be at least 2 characters';
+        break;
+      case 'lastName':
+        if (!validateRequired(value)) return 'Last name is required';
+        if (!validateMinLength(value, 2)) return 'Last name must be at least 2 characters';
+        break;
+      case 'email':
+        if (!validateRequired(value)) return 'Email is required';
+        if (!validateEmail(value)) return 'Please enter a valid email address';
+        break;
+      case 'phone':
+        if (!validateRequired(value)) return 'Phone number is required';
+        if (!validatePhone(value)) return 'Please enter a valid phone number';
+        break;
+      case 'linkedin':
+        if (!validateRequired(value)) return 'LinkedIn profile is required';
+        break;
+      case 'coverLetter':
+        if (!validateRequired(value)) return 'Cover letter is required';
+        if (!validateMinLength(value, 50)) return 'Cover letter must be at least 50 characters';
+        break;
+    }
+    return undefined;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    
+    if (touched[name]) {
+      const error = validateField(name, value);
+      setErrors(prev => ({ ...prev, [name]: error }));
+    }
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setTouched(prev => ({ ...prev, [name]: true }));
+    const error = validateField(name, value);
+    setErrors(prev => ({ ...prev, [name]: error }));
+  };
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+    let isValid = true;
+
+    (Object.keys(formData) as Array<keyof ApplicationForm>).forEach(key => {
+      const error = validateField(key, formData[key]);
+      if (error) {
+        newErrors[key] = error;
+        isValid = false;
+      }
+    });
+
+    setErrors(newErrors);
+    setTouched({
+      firstName: true,
+      lastName: true,
+      email: true,
+      phone: true,
+      linkedin: true,
+      coverLetter: true
+    });
+
+    return isValid;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    console.log('Application submitted:', { job: job.title, ...formData });
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+  };
+
+  const inputClasses = (fieldName: keyof ApplicationForm) => `
+    w-full px-4 py-3 rounded-lg border-2 transition-all duration-200
+    focus:outline-none focus:ring-2 focus:ring-offset-1
+    ${errors[fieldName] && touched[fieldName]
+      ? 'border-red-400 focus:border-red-500 focus:ring-red-200 bg-red-50'
+      : 'border-slate-200 focus:border-[#00BCD4] focus:ring-[#00BCD4]/20 bg-white'}
+    hover:border-slate-300
+  `;
+
+  if (isSubmitted) {
+    return (
+      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div className="bg-white rounded-2xl max-w-md w-full p-8 text-center">
+          <div className="w-20 h-20 bg-[#00BCD4]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg className="w-10 h-10 text-[#00BCD4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 className="text-2xl font-bold text-[#0B1F3A] mb-2">Application Submitted!</h3>
+          <p className="text-slate-600 mb-6">
+            Thank you for applying to <strong>{job.title}</strong>. We'll review your application and get back to you within 5-7 business days.
+          </p>
+          <button
+            onClick={onClose}
+            className="px-6 py-3 bg-[#00BCD4] text-[#0B1F3A] rounded-lg font-semibold hover:bg-[#00BCD4]/80 transition-all duration-200"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6 border-b border-slate-200">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-xl font-bold text-[#0B1F3A]">Apply for {job.title}</h3>
+              <p className="text-slate-600">{job.department} • {job.location}</p>
+            </div>
+            <button
+              onClick={onClose}
+              className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
+            >
+              <svg className="w-6 h-6 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-[#0B1F3A] mb-1.5">First Name *</label>
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={inputClasses('firstName')}
+                placeholder="John"
+              />
+              {errors.firstName && touched.firstName && (
+                <p className="text-sm text-red-600 mt-1">{errors.firstName}</p>
+              )}
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-[#0B1F3A] mb-1.5">Last Name *</label>
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={inputClasses('lastName')}
+                placeholder="Doe"
+              />
+              {errors.lastName && touched.lastName && (
+                <p className="text-sm text-red-600 mt-1">{errors.lastName}</p>
+              )}
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-[#0B1F3A] mb-1.5">Email *</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={inputClasses('email')}
+                placeholder="john@example.com"
+              />
+              {errors.email && touched.email && (
+                <p className="text-sm text-red-600 mt-1">{errors.email}</p>
+              )}
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-[#0B1F3A] mb-1.5">Phone *</label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={inputClasses('phone')}
+                placeholder="+1 (555) 000-0000"
+              />
+              {errors.phone && touched.phone && (
+                <p className="text-sm text-red-600 mt-1">{errors.phone}</p>
+              )}
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-[#0B1F3A] mb-1.5">LinkedIn Profile *</label>
+            <input
+              type="url"
+              name="linkedin"
+              value={formData.linkedin}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={inputClasses('linkedin')}
+              placeholder="https://linkedin.com/in/johndoe"
+            />
+            {errors.linkedin && touched.linkedin && (
+              <p className="text-sm text-red-600 mt-1">{errors.linkedin}</p>
+            )}
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-[#0B1F3A] mb-1.5">Cover Letter *</label>
+            <textarea
+              name="coverLetter"
+              value={formData.coverLetter}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              rows={5}
+              className={inputClasses('coverLetter')}
+              placeholder="Tell us why you're interested in this position and what makes you a great fit..."
+            />
+            {errors.coverLetter && touched.coverLetter && (
+              <p className="text-sm text-red-600 mt-1">{errors.coverLetter}</p>
+            )}
+          </div>
+
+          <div className="flex gap-4 pt-4">
+            <button
+              type="button"
+              onClick={onClose}
+              className="flex-1 px-6 py-3 rounded-lg font-semibold border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all duration-200"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={`
+                flex-1 px-6 py-3 rounded-lg font-semibold transition-all duration-200
+                ${isSubmitting 
+                  ? 'bg-slate-300 text-slate-500 cursor-not-allowed' 
+                  : 'bg-[#00BCD4] text-[#0B1F3A] hover:bg-[#00BCD4]/80'}
+              `}
+            >
+              {isSubmitting ? (
+                <span className="flex items-center justify-center gap-2">
+                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                  Submitting...
+                </span>
+              ) : (
+                'Submit Application'
+              )}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
 
 function JobCard({ job, onApply }: { job: Job; onApply: (job: Job) => void }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -191,6 +517,7 @@ export default function Careers() {
   const [isLoading, setIsLoading] = useState(true);
   const [jobList, setJobList] = useState<Job[]>([]);
   const [selectedDepartment, setSelectedDepartment] = useState<string>('All');
+  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -207,8 +534,11 @@ export default function Careers() {
     : jobList.filter(job => job.department === selectedDepartment);
 
   const handleApply = (job: Job) => {
-    console.log('Applying for:', job.title);
-    alert(`Thank you for your interest in ${job.title}! This would open the application form.`);
+    setSelectedJob(job);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedJob(null);
   };
 
   return (
@@ -303,6 +633,10 @@ export default function Careers() {
           </div>
         </div>
       </section>
+
+      {selectedJob && (
+        <ApplicationModal job={selectedJob} onClose={handleCloseModal} />
+      )}
     </div>
   );
 }
