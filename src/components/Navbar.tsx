@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import MetroBlueLogo from "./MetroBlueLogo";
+import MetroBlueLogo from "./MetroBlueLogo.tsx";
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -10,7 +10,9 @@ function Navbar() {
   return (
     <header className="border-b border-slate-200 bg-white">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <MetroBlueLogo />
+        <Link to="/" onClick={() => setMobileOpen(false)}>
+          <MetroBlueLogo />
+        </Link>
 
         <div className="hidden items-center gap-8 md:flex">
           <Link
@@ -92,7 +94,7 @@ function Navbar() {
                 </Link>
 
                 <Link
-                  to="/projects"
+                  to="/case-studies"
                   className="block rounded-md px-4 py-3 text-sm hover:bg-[#E6F7FB]"
                   onClick={() => setProjectsOpen(false)}
                 >
@@ -100,7 +102,7 @@ function Navbar() {
                 </Link>
 
                 <Link
-                  to="/projects"
+                  to="/client-success-stories"
                   className="block rounded-md px-4 py-3 text-sm hover:bg-[#E6F7FB]"
                   onClick={() => setProjectsOpen(false)}
                 >
