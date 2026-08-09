@@ -131,9 +131,7 @@ function Navbar() {
 
           <NavLink
             to="/contact"
-            className={({ isActive }) => isActive 
-              ? "rounded-lg bg-[#0F4C81] px-5 py-2.5 font-medium text-white hover:bg-[#0B1F3A]" 
-              : "rounded-lg bg-[#0F4C81] px-5 py-2.5 font-medium text-white hover:bg-[#0B1F3A]"}
+            className={({ isActive }) => isActive ? activeClass : inactiveClass}
           >
             Contact
           </NavLink>
@@ -194,7 +192,7 @@ function Navbar() {
 
             <NavLink
               to="/contact"
-              className={({ isActive }) => `rounded-md px-4 py-3 text-center font-medium ${isActive ? 'bg-[#0F4C81] text-white' : 'bg-[#0F4C81] text-white hover:bg-[#0B1F3A]'}`}
+              className={({ isActive }) => `rounded-md px-4 py-3 ${isActive ? 'bg-[#E6F7FB] text-[#00BCD4]' : 'hover:bg-[#E6F7FB]'}`}
               onClick={() => setMobileOpen(false)}
             >
               Contact
