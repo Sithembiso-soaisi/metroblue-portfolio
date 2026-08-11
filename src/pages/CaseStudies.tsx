@@ -38,9 +38,9 @@ const CaseStudies: React.FC = () => {
   ];
 
   return (
-    <main className="bg-[#0B1F3A]">
+    <main className="bg-white">
       {/* Hero Section */}
-      <section className="bg-[#0B1F3A] px-6 py-20 text-white">
+      <section className="bg-white px-6 py-20 text-slate-900">
         <div className="mx-auto max-w-6xl">
           <p className="font-semibold uppercase tracking-[0.2em] text-[#00BCD4]">
             Our Work
@@ -50,7 +50,7 @@ const CaseStudies: React.FC = () => {
             Case Studies
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
             Explore how MetroBlue combines technology, strategy, and
             innovation to solve complex business challenges and deliver
             meaningful results.
@@ -59,14 +59,14 @@ const CaseStudies: React.FC = () => {
       </section>
 
       {/* Case Studies */}
-      <section className="bg-[#0B1F3A] px-6 py-16">
+      <section className="bg-white px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold text-white">
+            <h2 className="text-3xl font-bold text-slate-900">
               Featured Case Studies
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl text-slate-300">
+            <p className="mx-auto mt-4 max-w-2xl text-slate-600">
               Take a closer look at the challenges, solutions, and outcomes
               behind some of the work delivered by MetroBlue.
             </p>
@@ -76,20 +76,20 @@ const CaseStudies: React.FC = () => {
             {caseStudies.map((study) => (
               <article
                 key={study.title}
-                className="flex flex-col overflow-hidden rounded-xl border border-[#0F4C81] bg-[#0F4C81]/30 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#00BCD4]/50 hover:shadow-xl"
+                className="flex flex-col overflow-hidden rounded-xl border border-[#0F4C81] bg-slate-50 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#00BCD4]/50 hover:shadow-xl"
               >
                 <div className="h-2 bg-[#00BCD4]" />
 
                 <div className="flex flex-1 flex-col p-8">
-                  <span className="mb-4 w-fit rounded-full bg-[#0B1F3A] px-3 py-1 text-sm font-semibold text-[#00BCD4]">
+                  <span className="mb-4 w-fit rounded-full bg-white px-3 py-1 text-sm font-semibold text-[#00BCD4]">
                     {study.category}
                   </span>
 
-                  <h3 className="text-2xl font-bold text-white">
+                  <h3 className="text-2xl font-bold text-slate-900">
                     {study.title}
                   </h3>
 
-                  <p className="mt-4 leading-7 text-slate-300">
+                  <p className="mt-4 leading-7 text-slate-600">
                     {study.description}
                   </p>
 
@@ -102,7 +102,7 @@ const CaseStudies: React.FC = () => {
                       {study.results.map((result) => (
                         <li
                           key={result}
-                          className="flex items-start gap-2 text-sm text-slate-300"
+                          className="flex items-start gap-2 text-sm text-slate-600"
                         >
                           <span className="mt-1 text-[#00BCD4]">✓</span>
                           <span>{result}</span>
@@ -124,7 +124,7 @@ const CaseStudies: React.FC = () => {
             Have a challenge we can solve?
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-slate-300">
+          <p className="mx-auto mt-4 max-w-2xl text-[#B8E8F0]">
             Let's discuss how MetroBlue can help turn your technology
             challenges into opportunities.
           </p>

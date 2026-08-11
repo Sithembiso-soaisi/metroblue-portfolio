@@ -22,7 +22,7 @@ function Projects() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="bg-[#0B1F3A] px-6 py-20 text-white">
+      <section className="bg-white px-6 py-20 text-slate-900">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="font-semibold uppercase tracking-[0.2em] text-[#00BCD4]">
@@ -33,7 +33,7 @@ function Projects() {
               Technology that delivers measurable impact
             </h1>
 
-            <p className="mt-6 text-lg leading-8 text-slate-300">
+            <p className="mt-6 text-lg leading-8 text-slate-600">
               Explore how MetroBlue helps organisations solve real problems
               with thoughtful, reliable digital products.
             </p>
@@ -48,7 +48,7 @@ function Projects() {
                 className={`rounded-full px-4 py-2 text-sm font-medium transition ${
                   activeFilter === filter
                     ? "bg-[#00BCD4] text-[#0B1F3A]"
-                    : "border border-[#0F4C81] text-slate-300 hover:border-[#00BCD4] hover:text-[#00BCD4]"
+                    : "border border-[#0F4C81] text-slate-600 hover:border-[#00BCD4] hover:text-[#00BCD4]"
                 }`}
               >
                 {filter}
@@ -98,7 +98,7 @@ function Projects() {
                   {project.technologies.map((technology) => (
                     <span
                       key={technology}
-                      className="rounded-full bg-[#E6F7FB] px-3 py-1 text-xs font-medium text-[#0F4C81]"
+                      className="rounded-full bg-slate-50 px-3 py-1 text-xs font-medium text-[#0F4C81]"
                     >
                       {technology}
                     </span>
@@ -119,7 +119,7 @@ function Projects() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#E6F7FB] px-6 py-16">
+      <section className="bg-slate-50 px-6 py-16">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
           <div>
             <h2 className="text-3xl font-bold text-[#0B1F3A]">
@@ -133,7 +133,7 @@ function Projects() {
 
           <a
             href="/contact"
-            className="rounded-lg bg-[#0F4C81] px-7 py-3 font-semibold text-white transition hover:bg-[#0B1F3A]"
+            className="rounded-lg bg-[#0F4C81] px-7 py-3 font-semibold text-slate-900 transition hover:bg-white"
           >
             Start a Conversation
           </a>
@@ -143,7 +143,7 @@ function Projects() {
       {/* Project Details Modal */}
       {selectedProject && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-[#0B1F3A]/90 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-white/90 p-4"
           role="presentation"
           onClick={() => setSelectedProject(null)}
         >
@@ -157,7 +157,7 @@ function Projects() {
             <button
               type="button"
               onClick={() => setSelectedProject(null)}
-              className="absolute right-5 top-5 rounded-md px-3 py-1 text-slate-500 transition hover:bg-[#E6F7FB] hover:text-[#0B1F3A]"
+              className="absolute right-5 top-5 rounded-md px-3 py-1 text-slate-500 transition hover:bg-slate-50 hover:text-[#0B1F3A]"
               aria-label="Close project details"
             >
               ×
@@ -204,7 +204,7 @@ function Projects() {
               {selectedProject.technologies.map((technology) => (
                 <span
                   key={technology}
-                  className="rounded-full bg-[#E6F7FB] px-3 py-1 text-sm text-[#0F4C81]"
+                  className="rounded-full bg-slate-50 px-3 py-1 text-sm text-[#0F4C81]"
                 >
                   {technology}
                 </span>
