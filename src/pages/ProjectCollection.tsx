@@ -21,7 +21,7 @@ function ProjectCollection({ view }: ProjectCollectionProps) {
     : projects;
 
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main className="min-h-screen bg-white text-slate-900">
       <section className="px-6 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <Link
@@ -40,7 +40,7 @@ function ProjectCollection({ view }: ProjectCollectionProps) {
               {pageTitle}
             </h1>
 
-            <p className="mt-6 text-lg leading-8 text-slate-300">
+            <p className="mt-6 text-lg leading-8 text-slate-600">
               {intro}
             </p>
           </div>
@@ -49,29 +49,29 @@ function ProjectCollection({ view }: ProjectCollectionProps) {
             {selectedProjects.map((project) => (
               <article
                 key={project.id}
-                className="rounded-2xl border border-slate-800 bg-slate-900 p-7 sm:p-10"
+                className="rounded-2xl border border-slate-200 bg-white p-7 sm:p-10"
               >
                 <p className="text-sm font-semibold uppercase tracking-wider text-cyan-400">
                   {project.industry}
                 </p>
 
-                <h2 className="mt-3 text-3xl font-bold text-white">
+                <h2 className="mt-3 text-3xl font-bold text-slate-900">
                   {project.title}
                 </h2>
 
-                <p className="mt-4 max-w-3xl leading-7 text-slate-300">
+                <p className="mt-4 max-w-3xl leading-7 text-slate-600">
                   {project.description}
                 </p>
 
                 <div className="mt-8 grid gap-8 md:grid-cols-2">
                   <section>
-                    <h3 className="text-lg font-bold text-white">
+                    <h3 className="text-lg font-bold text-slate-900">
                       {isCaseStudies
                         ? "Solution focus"
                         : "Impact for the client"}
                     </h3>
 
-                    <p className="mt-3 leading-7 text-slate-300">
+                    <p className="mt-3 leading-7 text-slate-600">
                       {isCaseStudies
                         ? `MetroBlue combined ${project.technologies.join(
                             ", "
@@ -81,11 +81,11 @@ function ProjectCollection({ view }: ProjectCollectionProps) {
                   </section>
 
                   <section>
-                    <h3 className="text-lg font-bold text-white">
+                    <h3 className="text-lg font-bold text-slate-900">
                       Measured outcomes
                     </h3>
 
-                    <ul className="mt-3 space-y-2 text-slate-300">
+                    <ul className="mt-3 space-y-2 text-slate-600">
                       {project.results.map((result) => (
                         <li key={result}>✓ {result}</li>
                       ))}

@@ -13,9 +13,7 @@ function Navbar() {
   return (
     <header className="border-b border-slate-200 bg-white">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <NavLink to="/" onClick={() => setMobileOpen(false)}>
-          <MetroBlueLogo />
-        </NavLink>
+        <MetroBlueLogo />
 
         <div className="hidden items-center gap-8 md:flex">
           <NavLink

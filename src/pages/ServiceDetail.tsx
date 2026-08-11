@@ -124,8 +124,8 @@ function ServiceDetail() {
   }
 
   return (
-    <main className="bg-slate-950 text-white">
-      <section className="bg-gradient-to-br from-blue-950 via-slate-950 to-cyan-950 px-6 py-20">
+    <main className="bg-white text-slate-900">
+      <section className="bg-gradient-to-br from-white via-white to-white px-6 py-20">
         <div className="mx-auto max-w-6xl">
           <Link to="/services" className="text-sm font-medium text-cyan-400 hover:text-cyan-300">
             ← All Services
@@ -134,7 +134,7 @@ function ServiceDetail() {
             {service.eyebrow}
           </p>
           <h1 className="mt-3 max-w-3xl text-4xl font-bold sm:text-5xl">{service.title}</h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">{service.overview}</p>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">{service.overview}</p>
         </div>
       </section>
 
@@ -143,21 +143,21 @@ function ServiceDetail() {
           <h2 className="text-3xl font-bold">What MetroBlue provides</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {service.provides.map((item) => (
-              <article key={item.title} className="rounded-2xl border border-slate-800 bg-slate-900 p-7">
+              <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-7">
                 <h3 className="text-xl font-bold text-cyan-400">{item.title}</h3>
-                <p className="mt-3 leading-7 text-slate-300">{item.description}</p>
+                <p className="mt-3 leading-7 text-slate-600">{item.description}</p>
               </article>
             ))}
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <section className="rounded-2xl border border-slate-800 bg-slate-900 p-7">
+            <section className="rounded-2xl border border-slate-200 bg-white p-7">
               <h2 className="text-2xl font-bold">Benefits to clients</h2>
-              <ul className="mt-5 space-y-3 text-slate-300">
+              <ul className="mt-5 space-y-3 text-slate-600">
                 {service.benefits.map((benefit) => <li key={benefit}>✓ {benefit}</li>)}
               </ul>
             </section>
-            <section className="rounded-2xl border border-slate-800 bg-slate-900 p-7">
+            <section className="rounded-2xl border border-slate-200 bg-white p-7">
               <h2 className="text-2xl font-bold">Technologies used</h2>
               <div className="mt-5 flex flex-wrap gap-3">
                 {service.technologies.map((technology) => (
