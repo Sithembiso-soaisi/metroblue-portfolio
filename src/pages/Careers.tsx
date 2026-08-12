@@ -543,10 +543,10 @@ export default function Careers() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="bg-[#0B1F3A] text-white py-20">
+      <section className="bg-white text-slate-900 py-20">
         <div className="mx-auto max-w-7xl px-6">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Join Our Team</h1>
-          <p className="text-xl text-slate-300 max-w-2xl">
+          <p className="text-xl text-slate-600 max-w-2xl">
             Build your career with MetroBlue. We're looking for talented individuals who want to make an impact.
           </p>
         </div>
@@ -594,7 +594,7 @@ export default function Careers() {
         )}
       </section>
 
-      <section className="bg-[#E6F7FB] py-16">
+      <section className="bg-slate-50 py-16">
         <div className="mx-auto max-w-7xl px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-[#0B1F3A] mb-4">Why MetroBlue?</h2>

@@ -1,20 +1,20 @@
 function Home() {
   return (
-    <div>
+    <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#0B1F3A]">
+      <section className="relative overflow-hidden bg-white">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
           {/* Hero Content */}
           <div>
-            <p className="mb-4 font-semibold uppercase tracking-[0.2em] text-[#00BCD4]">
+            <p className="mb-4 font-semibold uppercase tracking-[0.2em] text-[#0D84C5]">
               Technology • Innovation • Growth
             </p>
 
-            <h1 className="text-4xl font-bold leading-tight text-white md:text-6xl">
+            <h1 className="text-4xl font-bold leading-tight text-[#12304A] md:text-6xl">
               Technology solutions built for the future.
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
               MetroBlue helps businesses transform ideas into reliable,
               scalable, and modern digital solutions.
             </p>
@@ -22,14 +22,14 @@ function Home() {
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href="/services"
-                className="rounded-lg bg-[#00BCD4] px-6 py-3 text-center font-semibold text-[#0B1F3A] transition hover:bg-white"
+                className="rounded-lg bg-[#0D84C5] px-6 py-3 text-center font-semibold text-slate-900 transition hover:bg-[#47A342]"
               >
                 Explore Our Services
               </a>
 
               <a
                 href="/contact"
-                className="rounded-lg border border-white px-6 py-3 text-center font-semibold text-white transition hover:bg-white hover:text-[#0B1F3A]"
+                className="rounded-lg border border-[#0D84C5] px-6 py-3 text-center font-semibold text-[#0D84C5] transition hover:bg-[#0D84C5] hover:text-slate-900"
               >
                 Talk to Us
               </a>
@@ -38,40 +38,60 @@ function Home() {
 
           {/* Hero Visual */}
           <div className="relative">
-            <div className="mx-auto flex aspect-square max-w-md items-center justify-center rounded-3xl border border-[#00BCD4]/30 bg-[#0F4C81]/30 p-8 shadow-2xl">
+            <div className="mx-auto flex aspect-square max-w-md items-center justify-center rounded-3xl border border-[#0D84C5]/20 bg-slate-50 p-8 shadow-xl">
               <div className="grid w-full grid-cols-2 gap-4">
-                <div className="rounded-2xl border border-[#00BCD4]/30 bg-[#0B1F3A] p-6">
-                  <div className="mb-4 text-3xl text-[#00BCD4]">01</div>
-                  <h2 className="text-lg font-semibold text-white">
+                <div className="rounded-2xl border border-[#0D84C5]/20 bg-white p-6 shadow-sm">
+                  <div className="mb-4 text-3xl font-bold text-[#0D84C5]">
+                    01
+                  </div>
+
+                  <h2 className="text-lg font-semibold text-[#12304A]">
                     Software
                   </h2>
-                  <p className="mt-2 text-sm text-slate-400">
+
+                  <p className="mt-2 text-sm text-slate-500">
                     Modern digital products.
                   </p>
                 </div>
 
-                <div className="mt-8 rounded-2xl border border-[#00BCD4]/30 bg-[#0B1F3A] p-6">
-                  <div className="mb-4 text-3xl text-[#00BCD4]">02</div>
-                  <h2 className="text-lg font-semibold text-white">Cloud</h2>
-                  <p className="mt-2 text-sm text-slate-400">
+                <div className="mt-8 rounded-2xl border border-[#47A342]/20 bg-white p-6 shadow-sm">
+                  <div className="mb-4 text-3xl font-bold text-[#47A342]">
+                    02
+                  </div>
+
+                  <h2 className="text-lg font-semibold text-[#12304A]">
+                    Cloud
+                  </h2>
+
+                  <p className="mt-2 text-sm text-slate-500">
                     Scalable infrastructure.
                   </p>
                 </div>
 
-                <div className="-mt-4 rounded-2xl border border-[#00BCD4]/30 bg-[#0B1F3A] p-6">
-                  <div className="mb-4 text-3xl text-[#00BCD4]">03</div>
-                  <h2 className="text-lg font-semibold text-white">AI & Data</h2>
-                  <p className="mt-2 text-sm text-slate-400">
+                <div className="-mt-4 rounded-2xl border border-[#47A342]/20 bg-white p-6 shadow-sm">
+                  <div className="mb-4 text-3xl font-bold text-[#47A342]">
+                    03
+                  </div>
+
+                  <h2 className="text-lg font-semibold text-[#12304A]">
+                    AI & Data
+                  </h2>
+
+                  <p className="mt-2 text-sm text-slate-500">
                     Smarter business decisions.
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-[#00BCD4]/30 bg-[#0B1F3A] p-6">
-                  <div className="mb-4 text-3xl text-[#00BCD4]">04</div>
-                  <h2 className="text-lg font-semibold text-white">
+                <div className="rounded-2xl border border-[#0D84C5]/20 bg-white p-6 shadow-sm">
+                  <div className="mb-4 text-3xl font-bold text-[#0D84C5]">
+                    04
+                  </div>
+
+                  <h2 className="text-lg font-semibold text-[#12304A]">
                     Innovation
                   </h2>
-                  <p className="mt-2 text-sm text-slate-400">
+
+                  <p className="mt-2 text-sm text-slate-500">
                     Technology that moves you forward.
                   </p>
                 </div>
@@ -85,11 +105,11 @@ function Home() {
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-2xl">
-            <p className="font-semibold uppercase tracking-[0.2em] text-[#0F4C81]">
+            <p className="font-semibold uppercase tracking-[0.2em] text-[#0D84C5]">
               What We Do
             </p>
 
-            <h2 className="mt-3 text-3xl font-bold text-[#0B1F3A] md:text-4xl">
+            <h2 className="mt-3 text-3xl font-bold text-[#12304A] md:text-4xl">
               Technology built around your business.
             </h2>
 
@@ -101,10 +121,10 @@ function Home() {
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 p-8 transition hover:-translate-y-1 hover:shadow-lg">
-              <div className="text-3xl text-[#00BCD4]">⌘</div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-8 transition hover:-translate-y-1 hover:border-[#0D84C5]/40 hover:shadow-lg">
+              <div className="text-3xl text-[#0D84C5]">⚙</div>
 
-              <h3 className="mt-5 text-xl font-bold text-[#0B1F3A]">
+              <h3 className="mt-5 text-xl font-bold text-[#12304A]">
                 Software Engineering
               </h3>
 
@@ -114,10 +134,10 @@ function Home() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 p-8 transition hover:-translate-y-1 hover:shadow-lg">
-              <div className="text-3xl text-[#00BCD4]">☁</div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-8 transition hover:-translate-y-1 hover:border-[#47A342]/40 hover:shadow-lg">
+              <div className="text-3xl text-[#47A342]">☁</div>
 
-              <h3 className="mt-5 text-xl font-bold text-[#0B1F3A]">
+              <h3 className="mt-5 text-xl font-bold text-[#12304A]">
                 Cloud Architecture
               </h3>
 
@@ -127,10 +147,10 @@ function Home() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 p-8 transition hover:-translate-y-1 hover:shadow-lg">
-              <div className="text-3xl text-[#00BCD4]">◈</div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-8 transition hover:-translate-y-1 hover:border-[#0D84C5]/40 hover:shadow-lg">
+              <div className="text-3xl text-[#0D84C5]">◉</div>
 
-              <h3 className="mt-5 text-xl font-bold text-[#0B1F3A]">
+              <h3 className="mt-5 text-xl font-bold text-[#12304A]">
                 AI & Data Analytics
               </h3>
 
@@ -144,10 +164,10 @@ function Home() {
       </section>
 
       {/* Call To Action */}
-      <section className="bg-[#E6F7FB] px-6 py-16">
+      <section className="bg-slate-50 px-6 py-16">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
           <div>
-            <h2 className="text-3xl font-bold text-[#0B1F3A]">
+            <h2 className="text-3xl font-bold text-[#12304A]">
               Ready to build something better?
             </h2>
 
@@ -158,7 +178,7 @@ function Home() {
 
           <a
             href="/contact"
-            className="rounded-lg bg-[#0F4C81] px-7 py-3 font-semibold text-white transition hover:bg-[#0B1F3A]"
+            className="rounded-lg bg-[#0D84C5] px-7 py-3 font-semibold text-slate-900 transition hover:bg-[#47A342]"
           >
             Start a Conversation
           </a>

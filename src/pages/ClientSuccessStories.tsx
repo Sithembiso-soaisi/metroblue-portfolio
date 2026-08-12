@@ -29,9 +29,9 @@ const ClientSuccessStories: React.FC = () => {
   ];
 
   return (
-    <main className="bg-[#0B1F3A]">
+    <main className="bg-white">
       {/* Hero Section */}
-      <section className="bg-[#0B1F3A] px-6 py-20 text-white">
+      <section className="bg-white px-6 py-20 text-slate-900">
         <div className="mx-auto max-w-6xl">
           <p className="font-semibold uppercase tracking-[0.2em] text-[#00BCD4]">
             Client Impact
@@ -41,7 +41,7 @@ const ClientSuccessStories: React.FC = () => {
             Client Success Stories
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
             Our partnerships are built around real outcomes. Discover how
             MetroBlue helps organizations use technology to improve,
             transform, and grow.
@@ -50,14 +50,14 @@ const ClientSuccessStories: React.FC = () => {
       </section>
 
       {/* Success Stories */}
-      <section className="bg-[#0B1F3A] px-6 py-16">
+      <section className="bg-white px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold text-white">
+            <h2 className="text-3xl font-bold text-slate-900">
               Stories of Impact
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl text-slate-300">
+            <p className="mx-auto mt-4 max-w-2xl text-slate-600">
               From digital transformation to cloud and data solutions, our
               work is focused on creating lasting value for our clients.
             </p>
@@ -67,7 +67,7 @@ const ClientSuccessStories: React.FC = () => {
             {successStories.map((story) => (
               <article
                 key={story.title}
-                className="group flex flex-col overflow-hidden rounded-xl border border-[#0F4C81] bg-[#0F4C81]/30 shadow-md transition duration-300 hover:-translate-y-1 hover:border-[#00BCD4]/50 hover:shadow-xl"
+                className="group flex flex-col overflow-hidden rounded-xl border border-[#0F4C81] bg-slate-50 shadow-md transition duration-300 hover:-translate-y-1 hover:border-[#00BCD4]/50 hover:shadow-xl"
               >
                 <div className="flex h-32 items-center bg-[#0F4C81] px-8">
                   <div>
@@ -75,18 +75,18 @@ const ClientSuccessStories: React.FC = () => {
                       {story.industry}
                     </p>
 
-                    <h3 className="mt-2 text-xl font-bold text-white">
+                    <h3 className="mt-2 text-xl font-bold text-[#B8E8F0]">
                       {story.client}
                     </h3>
                   </div>
                 </div>
 
                 <div className="flex flex-1 flex-col p-8">
-                  <h4 className="text-xl font-bold text-white">
+                  <h4 className="text-xl font-bold text-slate-900">
                     {story.title}
                   </h4>
 
-                  <p className="mt-4 flex-1 leading-7 text-slate-300">
+                  <p className="mt-4 flex-1 leading-7 text-slate-600">
                     {story.description}
                   </p>
 
@@ -112,30 +112,36 @@ const ClientSuccessStories: React.FC = () => {
           <div className="grid gap-8 text-center sm:grid-cols-3">
             <div>
               <p className="text-4xl font-bold text-[#00BCD4]">3+</p>
-              <p className="mt-2 text-slate-300">Solution Areas</p>
+              <p className="mt-2 text-[#B8E8F0]">
+                Solution Areas
+              </p>
             </div>
 
             <div>
               <p className="text-4xl font-bold text-[#00BCD4]">100%</p>
-              <p className="mt-2 text-slate-300">Client Focused</p>
+              <p className="mt-2 text-[#B8E8F0]">
+                Client Focused
+              </p>
             </div>
 
             <div>
               <p className="text-4xl font-bold text-[#00BCD4]">1</p>
-              <p className="mt-2 text-slate-300">Shared Goal: Impact</p>
+              <p className="mt-2 text-[#B8E8F0]">
+                Shared Goal: Impact
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-[#0B1F3A] px-6 py-16">
+      <section className="bg-white px-6 py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold text-white">
+          <h2 className="text-3xl font-bold text-slate-900">
             Let's create your success story
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-slate-300">
+          <p className="mx-auto mt-4 max-w-2xl text-slate-600">
             Whether you're modernizing your systems, moving to the cloud, or
             looking for better insights, MetroBlue is ready to help.
           </p>

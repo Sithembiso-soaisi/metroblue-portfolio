@@ -91,7 +91,6 @@ export default function Contact() {
         break;
 
       case 'company':
-        // Company is optional.
         break;
 
       case 'phone':
@@ -125,7 +124,6 @@ export default function Contact() {
     >
   ) => {
     const { name, value } = e.target;
-
     const fieldName = name as FieldName;
 
     setFormData((prev) => ({
@@ -149,7 +147,6 @@ export default function Contact() {
     >
   ) => {
     const { name, value } = e.target;
-
     const fieldName = name as FieldName;
 
     setTouched((prev) => ({
@@ -305,11 +302,7 @@ export default function Contact() {
               Send Us a Message
             </h2>
 
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-5"
-              noValidate
-            >
+            <form onSubmit={handleSubmit} className="space-y-5" noValidate>
               {/* First and Last Name */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
@@ -670,7 +663,7 @@ export default function Contact() {
 
               <ul className="space-y-2">
                 <li className="flex justify-between">
-                  <span className="text-slate-300">
+                  <span className="text-white">
                     Monday - Friday
                   </span>
 
@@ -678,7 +671,7 @@ export default function Contact() {
                 </li>
 
                 <li className="flex justify-between">
-                  <span className="text-slate-300">
+                  <span className="text-white">
                     Saturday
                   </span>
 
@@ -686,7 +679,7 @@ export default function Contact() {
                 </li>
 
                 <li className="flex justify-between">
-                  <span className="text-slate-300">
+                  <span className="text-white">
                     Sunday
                   </span>
 

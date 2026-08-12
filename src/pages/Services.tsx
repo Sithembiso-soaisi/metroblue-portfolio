@@ -5,17 +5,17 @@ function Services() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="bg-[#0B1F3A] px-6 py-20 sm:py-28">
+      <section className="bg-white px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl text-center">
           <p className="font-semibold uppercase tracking-[0.2em] text-[#00BCD4]">
             Our Solutions
           </p>
 
-          <h1 className="mx-auto mt-4 max-w-4xl text-4xl font-bold leading-tight text-white md:text-6xl">
+          <h1 className="mx-auto mt-4 max-w-4xl text-4xl font-bold leading-tight text-slate-900 md:text-6xl">
             Technology that moves your business forward.
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
             MetroBlue designs intelligent, secure, and scalable digital
             solutions for ambitious organisations.
           </p>
@@ -87,7 +87,7 @@ function Services() {
       </section>
 
       {/* Call To Action */}
-      <section className="bg-[#E6F7FB] px-6 py-16">
+      <section className="bg-slate-50 px-6 py-16">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
           <div>
             <h2 className="text-3xl font-bold text-[#0B1F3A]">
@@ -101,7 +101,7 @@ function Services() {
 
           <Link
             to="/contact"
-            className="rounded-lg bg-[#0F4C81] px-7 py-3 font-semibold text-white transition hover:bg-[#0B1F3A]"
+            className="rounded-lg bg-[#0F4C81] px-7 py-3 font-semibold text-slate-900 transition hover:bg-white"
           >
             Start a Conversation
           </Link>
